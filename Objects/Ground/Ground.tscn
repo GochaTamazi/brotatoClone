@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://da1cx1rvwr887"]
+
+[ext_resource type="Script" path="res://Objects/Ground/Ground.cs" id="1_hbbjd"]
+[ext_resource type="Texture2D" uid="uid://cgnh25rc4p8i8" path="res://Objects/Ground/Sprites/Dark.jpg" id="2_bv37g"]
+
+[node name="Ground_0" type="Node2D"]
+script = ExtResource("1_hbbjd")
+
+[node name="Corners" type="Node" parent="."]
+
+[node name="LeftTop" type="Node2D" parent="Corners"]
+position = Vector2(-1080, -540)
+
+[node name="RightBot" type="Node2D" parent="Corners"]
+position = Vector2(1080, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bv37g")

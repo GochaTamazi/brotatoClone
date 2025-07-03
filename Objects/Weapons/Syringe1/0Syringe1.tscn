@@ -1,0 +1,93 @@
+[gd_scene load_steps=17 format=3 uid="uid://ben6a3xvxvqba"]
+
+[ext_resource type="Texture2D" uid="uid://da32ti5wt7bnp" path="res://Objects/Weapons/Syringe1/Sprites/1.png" id="1_m6y5u"]
+[ext_resource type="Script" path="res://Objects/Weapons/Syringe1/Syringe1.cs" id="1_qv15p"]
+[ext_resource type="Texture2D" uid="uid://ceu8y0h0ydrg3" path="res://Objects/Weapons/Syringe1/Sprites/Attack/1.png" id="2_iksaq"]
+[ext_resource type="Texture2D" uid="uid://by8w64vvcgyu7" path="res://Objects/Weapons/Syringe1/Sprites/Attack/2.png" id="3_i2ead"]
+[ext_resource type="Texture2D" uid="uid://cjhwu5wtfmrc8" path="res://Objects/Weapons/Syringe1/Sprites/Attack/3.png" id="4_nq1nq"]
+[ext_resource type="Texture2D" uid="uid://brgb2231bglnr" path="res://Objects/Weapons/Syringe1/Sprites/Attack/4.png" id="5_fdnuc"]
+[ext_resource type="Texture2D" uid="uid://brlndputswqs8" path="res://Objects/Weapons/Syringe1/Sprites/Attack/5.png" id="6_ohss4"]
+[ext_resource type="Texture2D" uid="uid://cvhgeqgjrssdc" path="res://Objects/Weapons/Syringe1/Sprites/Attack/6.png" id="7_x8vtm"]
+[ext_resource type="Texture2D" uid="uid://c6fnu1le1gd5f" path="res://Objects/Weapons/Syringe1/Sprites/Attack/7.png" id="8_oxu3f"]
+[ext_resource type="Texture2D" uid="uid://blebihdoekykc" path="res://Objects/Weapons/Syringe1/Sprites/Attack/8.png" id="9_xs0bp"]
+[ext_resource type="Texture2D" uid="uid://crx3nyknp6tyu" path="res://Objects/Weapons/Syringe1/Sprites/Attack/9.png" id="10_t0bms"]
+[ext_resource type="Texture2D" uid="uid://cfe5ym0yduswc" path="res://Objects/Weapons/Syringe1/Sprites/Attack/10.png" id="11_ikepc"]
+[ext_resource type="Texture2D" uid="uid://c35nxwifkpjdd" path="res://Objects/Weapons/Syringe1/Sprites/Attack/11.png" id="12_3i5ls"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grqyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iksaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i2ead")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nq1nq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fdnuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ohss4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x8vtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oxu3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xs0bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t0bms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ikepc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3i5ls")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m6y5u")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17h7t"]
+radius = 210.193
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a533y"]
+radius = 20.0
+height = 202.0
+
+[node name="Syringe1_0" type="Node2D"]
+script = ExtResource("1_qv15p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(101, 0)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_grqyj")
+animation = &"Attack"
+frame = 8
+frame_progress = 0.451936
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_17h7t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(101, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_a533y")
+debug_color = Color(0.418066, 0.575584, 0.520411, 0.42)

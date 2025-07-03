@@ -1,0 +1,151 @@
+[gd_scene load_steps=7 format=3 uid="uid://b58cdjhey62q5"]
+
+[ext_resource type="Script" path="res://UserInterfaces/Ui.cs" id="1_mqabh"]
+[ext_resource type="Texture2D" uid="uid://cwvvnmv5sw3yi" path="res://UserInterfaces/Sprites/PillBig.png" id="2_f8r0o"]
+[ext_resource type="FontFile" uid="uid://b0116v0tcw6sy" path="res://UserInterfaces/koziakinterlock.otf" id="2_omtdu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_10vpg"]
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnnbt"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82uxs"]
+bg_color = Color(0.662745, 0.74902, 0.768627, 1)
+border_width_top = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_mqabh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -58.0
+offset_top = 569.0
+offset_right = -18.0
+offset_bottom = 629.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label FPS" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label Enemies" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Label Help" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "Hold Left, Up, Right, Down button to move player, press 'P' to toggle spawners"
+label_settings = SubResource("LabelSettings_10vpg")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.9999
+offset_top = 20.0
+offset_right = -20.9999
+offset_bottom = 63.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer3"]
+position = Vector2(-45, 21)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_f8r0o")
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 10.0
+offset_right = -38.0
+offset_bottom = 61.0
+grow_horizontal = 0
+rotation = 0.785398
+scale = Vector2(0.74, 0.74)
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Cross" type="Label" parent="MarginContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662745, 0.74902, 0.768627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("2_omtdu")
+theme_override_font_sizes/font_size = 30
+text = "✚"
+vertical_alignment = 1
+
+[node name="MarginContainer6" type="MarginContainer" parent="."]
+clip_contents = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.9999
+offset_top = 12.0
+offset_right = -37.9999
+offset_bottom = 63.0
+scale = Vector2(0.74, 0.74)
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Pill Count" type="Label" parent="MarginContainer6"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662745, 0.74902, 0.768627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 15
+theme_override_fonts/font = ExtResource("2_omtdu")
+theme_override_font_sizes/font_size = 38
+text = " 0"
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.235294, 0.470588, 0.560784, 1)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 260.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("2_omtdu")
+theme_override_styles/background = SubResource("StyleBoxFlat_jnnbt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_82uxs")
+step = 1.0
+value = 65.0
+show_percentage = false

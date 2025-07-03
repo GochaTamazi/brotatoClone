@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8uexwqdo7cy4"]
+
+[ext_resource type="Texture2D" uid="uid://s55fbcvjowls" path="res://Objects/Pill/Sprites/Pill.png" id="1_02e67"]
+[ext_resource type="Script" path="res://Objects/Pill/Pill.cs" id="1_xq4bc"]
+[ext_resource type="PackedScene" uid="uid://dxwft0l0s1us3" path="res://Objects/Shadow/Shadow.tscn" id="2_1ifla"]
+[ext_resource type="Shader" path="res://Shaders/Outline2D_Outer.gdshader" id="3_aqyb5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sar3k"]
+shader = ExtResource("3_aqyb5")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hivwp"]
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tr3ca"]
+radius = 100.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(1, 1)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2147483648
+collision_mask = 2147483648
+gravity_scale = 0.0
+sleeping = true
+linear_damp_mode = 1
+linear_damp = 4.0
+angular_damp_mode = 1
+angular_damp = 4.0
+script = ExtResource("1_xq4bc")
+
+[node name="Shadow_0" parent="." instance=ExtResource("2_1ifla")]
+position = Vector2(0, 17)
+scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sar3k")
+position = Vector2(1, 1)
+rotation = 0.471239
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_02e67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_hivwp")
+
+[node name="Pill" type="Area2D" parent="."]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pill"]
+shape = SubResource("CircleShape2D_tr3ca")
+debug_color = Color(0.654902, 0.517647, 0.12549, 0.152941)

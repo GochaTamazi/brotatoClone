@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://crbyaupj0y0ts"]
+
+[ext_resource type="Script" path="res://Scenes/Main.cs" id="1_150ic"]
+[ext_resource type="PackedScene" uid="uid://da1cx1rvwr887" path="res://Objects/Ground/Ground.tscn" id="2_5oxd1"]
+[ext_resource type="PackedScene" uid="uid://clofdnjdjrkrv" path="res://Objects/Characters/Player/Player.tscn" id="2_fexqb"]
+[ext_resource type="PackedScene" uid="uid://c6luc6b0iruok" path="res://Objects/EnemySpawner/EnemySpawner.tscn" id="3_gu6fo"]
+[ext_resource type="PackedScene" uid="uid://b58cdjhey62q5" path="res://UserInterfaces/Ui.tscn" id="5_v45an"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(1080, 540)
+script = ExtResource("1_150ic")
+
+[node name="Ground_0" parent="." instance=ExtResource("2_5oxd1")]
+z_index = 1
+y_sort_enabled = true
+
+[node name="GroundObjects" type="Node2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Pills" type="Node2D" parent="."]
+z_index = 3
+y_sort_enabled = true
+
+[node name="Enemy Spawner" parent="." instance=ExtResource("3_gu6fo")]
+z_index = 4
+y_sort_enabled = true
+position = Vector2(-192, -107)
+
+[node name="Movable" type="Node2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+
+[node name="Enemies" type="Node2D" parent="Movable"]
+z_index = 6
+y_sort_enabled = true
+
+[node name="Player" parent="Movable" instance=ExtResource("2_fexqb")]
+z_index = 6
+y_sort_enabled = true
+
+[node name="UI" parent="." instance=ExtResource("5_v45an")]

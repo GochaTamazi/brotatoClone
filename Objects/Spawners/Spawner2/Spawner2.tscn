@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://pqp71s5brabt"]
+
+[ext_resource type="Script" path="res://Objects/Spawners/Spawner2/Spawner2.cs" id="1_3px5r"]
+[ext_resource type="PackedScene" uid="uid://dxwft0l0s1us3" path="res://Objects/Shadow/Shadow.tscn" id="2_dmfk5"]
+[ext_resource type="Texture2D" uid="uid://b84kbki8s5luy" path="res://Objects/Spawners/Spawner2/Sprites/1.png" id="2_pcf5q"]
+[ext_resource type="Shader" path="res://Objects/Spawners/Spawner2/Spawner2.gdshader" id="3_4olua"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13hm5"]
+shader = ExtResource("3_4olua")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 3.0
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[node name="Spawner2_0" type="Node2D"]
+position = Vector2(1, 1)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_3px5r")
+
+[node name="Shadow_0" parent="." instance=ExtResource("2_dmfk5")]
+position = Vector2(1, 23)
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_13hm5")
+rotation = -2.41731
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_pcf5q")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=17 format=3 uid="uid://b6dm3st7ydro0"]
+
+[ext_resource type="Script" path="res://Objects/Characters/Enemies/Mob2/Mob2.cs" id="1_a03dl"]
+[ext_resource type="Texture2D" uid="uid://bosukr8buqmu0" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/1.png" id="2_bvuom"]
+[ext_resource type="Shader" path="res://Shaders/Outline2D_Outer.gdshader" id="2_i3u8r"]
+[ext_resource type="Texture2D" uid="uid://rt1w0fbtsw0c" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/2.png" id="3_hiokf"]
+[ext_resource type="Texture2D" uid="uid://dgchmlbvnj7bk" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/3.png" id="4_ru1ms"]
+[ext_resource type="Texture2D" uid="uid://cdhr1djj261pu" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/4.png" id="5_uffv7"]
+[ext_resource type="Texture2D" uid="uid://csk3c5b2xyblp" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/5.png" id="6_afw2u"]
+[ext_resource type="Texture2D" uid="uid://cvrpfp61kjtn3" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/6.png" id="7_2r8yh"]
+[ext_resource type="Texture2D" uid="uid://rlwxv8bsswgj" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/7.png" id="8_yqnwm"]
+[ext_resource type="Texture2D" uid="uid://bvlate8phgudq" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/8.png" id="9_23cgj"]
+[ext_resource type="Texture2D" uid="uid://bm4edw2kcokde" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/9.png" id="10_kjklm"]
+[ext_resource type="Texture2D" uid="uid://dhqkkbry687gb" path="res://Objects/Characters/Enemies/Mob2/Sprites/Run/10.png" id="11_yhpmw"]
+[ext_resource type="PackedScene" uid="uid://dxwft0l0s1us3" path="res://Objects/Shadow/Shadow.tscn" id="13_c4mwp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbjlu"]
+shader = ExtResource("2_i3u8r")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rx8dy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bvuom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hiokf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ru1ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uffv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_afw2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2r8yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yqnwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_23cgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kjklm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yhpmw")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etipy"]
+radius = 30.0
+
+[node name="Mob2_0" type="CharacterBody2D"]
+position = Vector2(1, 1)
+collision_layer = 3
+collision_mask = 14
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_a03dl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jbjlu")
+sprite_frames = SubResource("SpriteFrames_rx8dy")
+animation = &"Run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_etipy")
+
+[node name="Shadow_0" parent="." instance=ExtResource("13_c4mwp")]
+position = Vector2(0, 41)

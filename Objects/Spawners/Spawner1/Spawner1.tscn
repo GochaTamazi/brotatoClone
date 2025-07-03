@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://hfpuhrod1gwo"]
+
+[ext_resource type="Texture2D" uid="uid://0cptk44rkhul" path="res://Objects/Spawners/Spawner1/Sprites/1.png" id="1_abnm2"]
+[ext_resource type="Script" path="res://Objects/Spawners/Spawner1/Spawner1.cs" id="1_nb4ds"]
+[ext_resource type="PackedScene" uid="uid://dxwft0l0s1us3" path="res://Objects/Shadow/Shadow.tscn" id="2_u74sp"]
+[ext_resource type="Texture2D" uid="uid://cb083iovhxvbx" path="res://Objects/Spawners/Spawner1/Sprites/2.png" id="2_ygguu"]
+[ext_resource type="Shader" path="res://Shaders/Outline2D_Outer.gdshader" id="3_bfx12"]
+[ext_resource type="Texture2D" uid="uid://wi40h4rhup5q" path="res://Objects/Spawners/Spawner1/Sprites/3.png" id="3_ld7ne"]
+[ext_resource type="Texture2D" uid="uid://dse0fdli63dac" path="res://Objects/Spawners/Spawner1/Sprites/4.png" id="4_7eup6"]
+[ext_resource type="Texture2D" uid="uid://ce46o6b4h00sp" path="res://Objects/Spawners/Spawner1/Sprites/5.png" id="5_irb13"]
+[ext_resource type="Texture2D" uid="uid://sb4crbon0esu" path="res://Objects/Spawners/Spawner1/Sprites/6.png" id="6_ynupr"]
+[ext_resource type="Texture2D" uid="uid://6tgpaprllr1p" path="res://Objects/Spawners/Spawner1/Sprites/7.png" id="7_kjadc"]
+[ext_resource type="Texture2D" uid="uid://bnj805y2bkdwd" path="res://Objects/Spawners/Spawner1/Sprites/8.png" id="9_i0eqe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_toniu"]
+shader = ExtResource("3_bfx12")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 2.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ae6jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_abnm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ygguu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ld7ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7eup6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_irb13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ynupr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kjadc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i0eqe")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 14.0
+}]
+
+[node name="Spawner1_0" type="Node2D"]
+position = Vector2(1, 1)
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_nb4ds")
+
+[node name="Shadow_0" parent="." instance=ExtResource("2_u74sp")]
+position = Vector2(0, 7)
+scale = Vector2(0.3, 0.3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_toniu")
+scale = Vector2(0.65, 0.15)
+sprite_frames = SubResource("SpriteFrames_ae6jt")
+animation = &"Default"
+frame = 7
+frame_progress = 0.472114
